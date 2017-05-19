@@ -9,6 +9,7 @@ var expressValidator = require('express-validator');
 var logresults = require('./routes/logresults');
 var monitoredsite = require('./routes/monitoredsite');
 var urlfailures = require('./routes/urlfailures');
+var lastexecuted = require('./routes/lastexecuted');
 
 var app = express();
 
@@ -42,6 +43,7 @@ app.use(
 app.use('/api/logresults', logresults);
 app.use('/api/monitoredsite', monitoredsite);
 app.use('/api/urlfailures', urlfailures);
+app.use('/api/lastexecuted', lastexecuted);
 
 
 app.use(function(req, res, next) {
