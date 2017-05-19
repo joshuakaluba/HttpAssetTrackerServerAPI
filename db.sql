@@ -33,3 +33,7 @@ FROM (`monitorlog` `l` JOIN `monitoredsite` `m`
 ON((`l`.`monitoredSiteId` = `m`.`id`))) 
 WHERE (NOT((`l`.`httpResponseCode` like '%200%'))) 
 ORDER BY `l`.`dateCreated` DESC;
+
+
+CREATE VIEW `last_time_executed` AS
+SELECT max(dateCreated) as 'lastTimeExecuted' FROM monitorlog;
